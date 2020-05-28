@@ -1,0 +1,54 @@
+input, select, textarea {
+    background: @input-background;
+    color: @input-color;
+    border: @input-border-size solid @input-border-color;
+    padding: @input-padding;
+    resize:none;
+
+    &:hover, &:focus {
+        outline: none;
+    }
+}
+
+.form-group {
+    margin: 5px 0px;
+
+    label {
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    input, button, select {
+        width: 100%;
+    }
+}
+
+.component-form {
+    .form-schema {
+        margin: 12px 0px;
+
+        .schema-property {
+            .clearfix();
+
+            .property-label {
+                display: block;
+                width: 50%;
+                padding: 5px;
+
+                &.level-1 {
+                    color: @color-11;
+                }
+            }
+
+            .property-input {
+                width: 50%;
+                max-width: 250px;
+                float: right;
+
+                input, button, select {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

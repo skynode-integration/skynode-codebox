@@ -1,0 +1,31 @@
+<div class="dialog-header">
+    <%- options.schema.title %>
+</div>
+<div class="dialog-body">
+<%
+_.each(options.schema.properties, function(property, key) {
+    var value = options.defaultValues[key] || property.default;
+%>
+    <% if (property.type == "string") { %>
+    <div class="form-group">
+        <label><%- property.description %></label>
+        <input type="<%- (property.password? "password" : "text") %>" class="form-control" name="<%- key %>" value="<%- value %>" />
+    </div>
+    <% } else if (property.type == "integer") { %>
+    <div class="form-group">
+        <label><%- property.description %></label>
+        <input type="number" class="form-control" name="<%- key %>" value="<%- value %>" step="<%- property.multipleOf || 1 %>" min="<%- property.minimum || 0 %>" max="<%- property.maximum || 10000 %>" />
+    </div>
+    <% } %>
+<% }); %>
+</div>
+<div class="dialog-actions">
+    <div class="row">
+        <div class="col-50">
+            <button class="button-block do-confirm"><%- options.ok || "Ok" %></button>
+        </div>
+        <div class="col-50">
+            <button class="button-block do-close"><%- options.cancel || "Cancel" %></button>
+        </div>
+    </div>
+</div>
