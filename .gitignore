@@ -25,14 +25,14 @@ build/Release
 node_modules
 
 # Bower Vendors
-editor/vendors
+## editor/vendors
 
 # All installed packages
-packages/*
+# packages/*
 !packages/.gitkeep
 
 # Build output
-build
+## build
 
 # Tmp directory
 .tmp
