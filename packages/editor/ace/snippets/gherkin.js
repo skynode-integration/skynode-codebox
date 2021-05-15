@@ -1,1 +1,14 @@
-ace.define("ace/snippets/gherkin",["require","exports","module"],function(e,t,n){"use strict";t.snippetText=undefined,t.scope="gherkin"})
+ace.define("ace/snippets/gherkin",["require","exports","module"], function(ace_require, exports, module) {
+"use strict";
+
+exports.snippetText =undefined;
+exports.scope = "gherkin";
+
+});                (function() {
+                    ace.require(["ace/snippets/gherkin"], function(m) {
+                        if (typeof module == "object" && typeof exports == "object" && module) {
+                            module.exports = m;
+                        }
+                    });
+                })();
+            

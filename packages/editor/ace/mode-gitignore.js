@@ -1,1 +1,59 @@
-ace.define("ace/mode/gitignore_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/text_highlight_rules"],function(e,t,n){"use strict";var r=e("../lib/oop"),i=e("./text_highlight_rules").TextHighlightRules,s=function(){this.$rules={start:[{token:"comment",regex:/^\s*#.*$/},{token:"keyword",regex:/^\s*!.*$/}]},this.normalizeRules()};s.metaData={fileTypes:["gitignore"],name:"Gitignore"},r.inherits(s,i),t.GitignoreHighlightRules=s}),ace.define("ace/mode/gitignore",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/gitignore_highlight_rules"],function(e,t,n){"use strict";var r=e("../lib/oop"),i=e("./text").Mode,s=e("./gitignore_highlight_rules").GitignoreHighlightRules,o=function(){this.HighlightRules=s};r.inherits(o,i),function(){this.lineCommentStart="#",this.$id="ace/mode/gitignore"}.call(o.prototype),t.Mode=o})
+ace.define("ace/mode/gitignore_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/text_highlight_rules"], function(ace_require, exports, module) {
+"use strict";
+
+var oop = ace_require("../lib/oop");
+var TextHighlightRules = ace_require("./text_highlight_rules").TextHighlightRules;
+
+var GitignoreHighlightRules = function() {
+    this.$rules = {
+        "start" : [
+            {
+                token : "comment",
+                regex : /^\s*#.*$/
+            }, {
+                token : "keyword", // negated patterns
+                regex : /^\s*!.*$/
+            }
+        ]
+    };
+    
+    this.normalizeRules();
+};
+
+GitignoreHighlightRules.metaData = {
+    fileTypes: ['gitignore'],
+    name: 'Gitignore'
+};
+
+oop.inherits(GitignoreHighlightRules, TextHighlightRules);
+
+exports.GitignoreHighlightRules = GitignoreHighlightRules;
+});
+
+ace.define("ace/mode/gitignore",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/gitignore_highlight_rules"], function(ace_require, exports, module) {
+"use strict";
+
+var oop = ace_require("../lib/oop");
+var TextMode = ace_require("./text").Mode;
+var GitignoreHighlightRules = ace_require("./gitignore_highlight_rules").GitignoreHighlightRules;
+
+var Mode = function() {
+    this.HighlightRules = GitignoreHighlightRules;
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+    this.lineCommentStart = "#";
+    this.$id = "ace/mode/gitignore";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+});                (function() {
+                    ace.require(["ace/mode/gitignore"], function(m) {
+                        if (typeof module == "object" && typeof exports == "object" && module) {
+                            module.exports = m;
+                        }
+                    });
+                })();
+            
