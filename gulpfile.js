@@ -24,7 +24,7 @@ function exec(cmd, cb) {
 gulp.task('scripts', function() {
     var out = gulp.src('editor/main.js')
     .pipe(browserify({
-        debug: false,
+        debug: true,
         transform: ['stringify', 'require-globify']
     }));
 

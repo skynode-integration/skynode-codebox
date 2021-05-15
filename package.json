@@ -91,19 +91,6 @@
         "stringify": "3.1.0"
     },
     "packageDependencies": {
-        "about": "CodeboxIDE/package-about",
-        "command-palette": "CodeboxIDE/package-command-palette",
-        "files-tree": "CodeboxIDE/package-files-tree",
-        "tabs": "CodeboxIDE/package-tabs",
-        "editor": "CodeboxIDE/package-editor",
-        "editorsync": "CodeboxIDE/package-editorsync",
-        "pkgcontrol": "CodeboxIDE/package-pkgcontrol",
-        "statusbar": "CodeboxIDE/package-statusbar",
-        "panels": "CodeboxIDE/package-panels",
-        "find": "CodeboxIDE/package-find",
-        "settings": "CodeboxIDE/package-settings",
-        "menubar": "CodeboxIDE/package-menubar",
-        "image": "CodeboxIDE/package-image"
     },
     "scripts": {
         "test": "export TESTING=true; mocha --reporter list"
