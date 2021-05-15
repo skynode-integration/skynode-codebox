@@ -1,0 +1,264 @@
+/*
+ * Layout & Styling
+ */
+
+.ace_editor {
+    /* Search dialog */
+    .ace_search, .ace_search.right {
+        right: 0px;
+        left: 0px;
+        max-width: none;
+        bottom: 0px;
+        top: auto;
+        border: 1px solid;
+        border-radius: 0px;
+        padding: 0px;
+        box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+
+        font-smoothing: subpixel-antialiased;
+        -webkit-font-smoothing: subpixel-antialiased;
+
+        .ace_searchbtn_close {
+            margin: 9px 5px 0px 5px;
+        }
+
+        .ace_search_field {
+        }
+
+        .ace_search_form, .ace_replace_form {
+            border-radius: 0px;
+            margin: 4px;
+        }
+
+        .ace_search_options {
+            text-align: left;
+            display: inline-block;
+            float: right;
+            margin: 0px;
+            padding: 4px;
+            height: 24px;
+        }
+
+        .ace_button {
+            border-radius: 0px;
+            padding: 2px 4px;
+            margin: 0 3px 0 0;
+            display: inline-block;
+        }
+
+        .ace_searchbtn, .ace_replacebtn{
+            padding: 0px 5px;
+            border-radius: 0px;
+        }
+    }
+}
+
+.ace_editor.ace-codebox {
+    background-color: @bg;
+    color: @text-color;
+    font-family: 'Source Code Pro', "menlo", monospace, sans-serif;
+    font-size: @font-size-normal;
+
+    .ace_gutter {
+        background: @gutter-bg;
+        color: @gutter-color;
+    }
+
+    .ace_print-margin {
+        width: 1px;
+        background: @active-color
+    }
+
+    .ace_cursor {
+        color: #AEAFAD
+    }
+
+    .ace_marker-layer .ace_selection {
+        background: @select-bg;
+    }
+
+    &.ace_multiselect .ace_selection.ace_start {
+        box-shadow: 0 0 3px 0px #1D1F21;
+        border-radius: 2px
+    }
+
+    .ace_marker-layer .ace_step {
+        background: rgb(102, 82, 0)
+    }
+
+    .ace_marker-layer .ace_bracket {
+        margin: -1px 0 0 -1px;
+        border: 1px solid #4B4E55
+    }
+
+    .ace_marker-layer .ace_active-line {
+        background: @active-color
+    }
+
+    .ace_gutter-active-line {
+        background-color: @active-color;
+    }
+
+    .ace_marker-layer .ace_selected-word {
+        border: 1px solid #373B41
+    }
+
+    .ace_invisible {
+        color: #4B4E55
+    }
+
+    .ace_keyword,
+    .ace_meta,
+    .ace_storage,
+    .ace_storage.ace_type,
+    .ace_support.ace_type {
+        color: @syntax-keyword;
+    }
+
+    .ace_keyword.ace_operator {
+        color: #8ABEB7
+    }
+
+    .ace_constant.ace_character,
+    .ace_constant.ace_language,
+    .ace_constant.ace_numeric,
+    .ace_keyword.ace_other.ace_unit,
+    .ace_support.ace_constant,
+    .ace_variable.ace_parameter {
+        color: @syntax-number;
+    }
+
+    .ace_constant.ace_other {
+        color: #CED1CF
+    }
+
+    .ace_invalid {
+        color: #CED2CF;
+        background-color: #DF5F5F
+    }
+
+    .ace_invalid.ace_deprecated {
+        color: #CED2CF;
+        background-color: #B798BF
+    }
+
+    .ace_fold {
+        background-color: #81A2BE;
+        border-color: #757a84
+    }
+
+    .ace_entity.ace_name.ace_function,
+    .ace_support.ace_function,
+    .ace_variable {
+        color: @syntax-method;
+    }
+
+    .ace_support.ace_class,
+    .ace_support.ace_type {
+        color: @syntax-class;
+    }
+
+    .ace_heading,
+    .ace_string {
+        color: @syntax-string;
+    }
+
+    .ace_entity.ace_name.ace_tag,
+    .ace_entity.ace_other.ace_attribute-name,
+    .ace_meta.ace_tag,
+    .ace_string.ace_regexp,
+    .ace_indentifier,
+    .ace_variable {
+        color: @syntax-variable;
+    }
+
+    .ace_comment {
+        color: @syntax-comment;
+    }
+
+    .ace_indent-guide {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWNgYGBgYHB3d/8PAAOIAdULw8qMAAAAAElFTkSuQmCC) right repeat-y;
+    }
+
+    /* Autocomplete dialog */
+    &.ace_autocomplete {
+        width: 280px;
+        z-index: 200000;
+        background: @autocomplete-bg;
+        color: @autocomplete-color;
+        border: none;
+        position: fixed;
+        box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+        line-height: 2;
+
+        font-smoothing: subpixel-antialiased;
+        -webkit-font-smoothing: subpixel-antialiased;
+
+        .ace_marker-layer .ace_active-line {
+            background-color: @autocomplete-selected-bg;
+            z-index: 1;
+        }
+        .ace_text-layer .ace_selected,
+        .ace_text-layer .ace_selected .ace_rightAlignedText{
+            color: @autocomplete-selected-color;
+        }
+        .ace_line-hover {
+            border: none;
+            margin-top: -1px;
+            background: none;
+        }
+        .ace_line-hover {
+            position: absolute;
+            z-index: 2;
+        }
+        .ace_rightAlignedText {
+            color: @autocomplete-color;
+            font-style: italic;
+            display: inline-block;
+            position: absolute;
+            right: 4px;
+            text-align: right;
+            z-index: -1;
+        }
+        .ace_completion-highlight{
+            color: @autocomplete-match-color;
+        }
+    }
+
+    /* Search dialog */
+    .ace_search {
+        border-color: transparent;
+        background: #1c1f25;
+        color: #65737e;
+
+        .ace_searchbtn_close {
+            &:hover {
+                background-color: #323d46;
+                color: #65737e;
+            }
+        }
+
+        .ace_search_field {
+            background: #323d46;
+            color: #65737e;
+            border-color: transparent;
+        }
+
+        .ace_search_form, .ace_replace_form {
+            background-color: #323d46;
+            color: #65737e;
+            border-color: transparent;
+        }
+
+        .ace_button {
+            background-color: #323d46;
+            color: #65737e;
+        }
+
+        .ace_searchbtn, .ace_replacebtn{
+            background-color: #323d46;
+            color: #65737e;
+            border-color: transparent;
+        }
+    }
+}

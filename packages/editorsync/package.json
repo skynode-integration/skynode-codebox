@@ -1,0 +1,19 @@
+{
+    "name": "editorsync",
+    "version": "0.0.0",
+    "description": "Realtime collaboration inside the code editor",
+    "browser": "./src/index.js",
+    "main": "./lib/index.js",
+    "engines": {
+        "codebox": ">=1.0.0-alpha"
+    },
+    "packageDependencies": {
+        "editor": "CodeboxIDE/package-editor"
+    },
+    "dependencies": {
+        "q": "1.0.1",
+        "lodash": "2.4.1",
+        "googlediff": "0.1.0",
+        "crc": "0.2.1"
+    }
+}

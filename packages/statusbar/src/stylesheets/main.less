@@ -1,0 +1,59 @@
+@statusbar-height: 24px;
+@statusbar-message-margin: 15px;
+
+
+.component-statusbar {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    height: @statusbar-height;
+
+    padding: 0px 5px;
+
+    background: @color-0-0;
+    color: @color-3;
+
+    line-height: @statusbar-height;
+
+    .statusbar-messages {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+
+        .message {
+            white-space: pre;
+            float: left;
+            margin-right: @statusbar-message-margin;
+            cursor: default;
+
+            &.position-right {
+                float: right;
+            }
+
+            &.type-action {
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+.main-application {
+    > .main-grid {
+        bottom: @statusbar-height;
+    }
+
+    &.hide-statusbar {
+        > .main-grid {
+            bottom: 0px;
+        }
+
+        .component-statusbar {
+            display: none;
+        }
+    }
+}

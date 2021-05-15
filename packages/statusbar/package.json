@@ -1,0 +1,9 @@
+{
+    "name": "statusbar",
+    "version": "0.0.0",
+    "description": "Statusbar for Codebox",
+    "browser": "./src/index.js",
+    "engines": {
+        "codebox": ">=1.0.0-alpha"
+    }
+}

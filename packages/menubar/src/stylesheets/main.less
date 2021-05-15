@@ -1,0 +1,204 @@
+@menubar-height: 30px;
+@menubar-inner-height: 24px;
+@menubar-margin-bottom: 3px;
+
+.component-menubar {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 10;
+    height: @menubar-height;
+
+    padding: 0px 0px;
+
+    background: @color-0-1;
+    color: @color-3;
+
+    line-height: @menubar-inner-height;
+    padding: (@menubar-height - @menubar-inner-height)/2;
+
+    .menubar-user {
+        float: right;
+        margin: 0px 6px;
+    }
+
+    .menubar-workspace {
+        float: left;
+        font-weight: bold;
+        margin-left: 6px;
+        margin-right: 10px;
+        color: @color-6;
+    }
+
+    .menuitems {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+
+        .menuitem {
+            min-width: 220px;
+            position: relative;
+
+            &.type-separator {
+                margin: 2px 0px;
+                border-top: 1px solid @color-0-0;
+
+                > .caption {
+                    display: none;
+                }
+            }
+
+            > .shortcut {
+                float: right;
+                float: right;
+                padding-right: 5px;
+                font-size: 12px;
+            }
+
+            > .caption {
+                display: block;
+                cursor: default;
+                padding: 4px 6px;
+                line-height: 1;
+                border: 1px solid transparent;
+            }
+
+            > .menuitem-sub {
+                position: absolute;
+                top: 0%;
+                left: 100%;
+                background: @menu-background;
+                border: 1px solid @menu-border-color;
+                color: @menu-color;
+                display: none;
+
+                > .menuitems {
+                    .menuitem {
+                        float: none;
+                    }
+                }
+            }
+
+            &:hover {
+                > .caption {
+                    background: @menu-item-active-background;
+                    color: @menu-item-active-color;
+                }
+
+                > .shortcut {
+                    color: @menu-item-active-color;
+                }
+            }
+
+            /*&.active {
+                > .caption {
+                    color: @color-5;
+                }
+
+                > .menuitem-sub {
+                    display: block;
+                    overflow-y: auto;
+                    max-height: 400px;
+                }
+            }*/
+
+            &.disabled {
+                > .caption {
+                    opacity: 0.5;
+                }
+
+                &:hover {
+                    > .caption {
+                        background: transparent;
+                        color: inherit;
+                    }
+                }
+            }
+        }
+    }
+
+    > .menuitems {
+        .clearfix();
+
+        > .menuitem {
+            float: left;
+            min-width: 0px;
+
+            > .caption {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+            &:hover > .caption {
+                background: none;
+                color: @color-7;
+            }
+
+            &.active {
+                > .caption {
+                    border-color: @menu-border-color;
+                    background: @menu-background;
+                    color: @menu-color;
+                    border-bottom-color: transparent;
+                    z-index: 2;
+                    position: relative;
+                }
+
+                >.menuitem-sub {
+                    display: block;
+                    overflow-y: auto;
+                    max-height: 400px;
+                    top: 100%;
+                    left: 0%;
+                    margin-top: -1px;
+                    overflow: visible;
+                    max-height: none;
+                }
+            }
+
+            .menuitem {
+                &.type-menu {
+                    &:after {
+                        right: 4px;
+                        top: 50%;
+                        border: solid transparent;
+                        content: " ";
+                        height: 0;
+                        width: 0;
+                        position: absolute;
+                        pointer-events: none;
+                        border-color: rgba(0, 0, 0, 0);
+                        border-left-color: @menu-color;
+                        border-width: 6px;
+                        margin-top: -6px;
+                    }
+                }
+
+                &:hover {
+                    > .menuitem-sub {
+                        display: block;
+                        overflow-y: auto;
+                        max-height: 400px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.main-application {
+    > .main-grid {
+        top: @menubar-height + @menubar-margin-bottom;
+    }
+
+    &.hide-menubar {
+        > .main-grid {
+            top: 0px;
+        }
+
+        .component-menubar {
+            display: none;
+        }
+    }
+}
