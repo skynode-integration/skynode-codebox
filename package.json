@@ -64,7 +64,7 @@
         "gulp-rename": "^1.4.0",
         "gulp-run-sequence": "^0.3.2",
         "gulp-uglify": "^3.0.1",
-        "axios": "0.5.4",
+        "axios": "0.21.1",
         "chai": "2.2.0",
         "del": "1.1.1",
         "hr.app": "0.2.0",
