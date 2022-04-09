@@ -12,7 +12,7 @@
     },
     "dependencies": {
         "stringify": "3.1.0",
-        "moment": "2.10.2"
+        "moment": "2.29.2"
     },
     "browserify": {
         "transform": [
