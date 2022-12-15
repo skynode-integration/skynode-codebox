@@ -41,7 +41,7 @@
         "cookie-parser": "1.0.1",
         "crc": "0.2.1",
         "eventemitter2": "0.4.14",
-        "express": "4.6.1",
+        "express": "4.17.3",
         "express-session": "1.7.0",
         "ini": "1.2.1",
         "less": "^3.8.1",
